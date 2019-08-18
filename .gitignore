@@ -1,0 +1,9 @@
+*.pyc
+*.swp
+venv/
+.idea/
+dist/
+build/
+nohup.out
+__pycache__/
+*.spec
