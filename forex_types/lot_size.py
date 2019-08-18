@@ -1,9 +1,8 @@
 """Lot size, in base currency, in batches of 1000 (rounded down)."""
 
 from decimal import Decimal
-from math import log10, floor
 
-from money_model.odd_math import int_round
+from forex_types.odd_math import int_round
 
 ZERO = 0
 HUNDRED = 100

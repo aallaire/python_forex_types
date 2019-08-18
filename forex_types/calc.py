@@ -2,11 +2,11 @@
 
 from decimal import Decimal
 
-from money_model.cash import Cash
-from money_model.currency import Currency
-from money_model.lot_size import LotSize
-from money_model.price import Price, NinjaPrice
-from money_model.direction import Direction
+from forex_types.cash import Cash
+from forex_types.currency import Currency
+from forex_types.lot_size import LotSize
+from forex_types.price import Price, NinjaPrice
+from forex_types.direction import Direction
 
 
 class CalcError(Exception):

@@ -1,8 +1,10 @@
 *.pyc
 *.swp
+*_package.sh
 venv/
 .idea/
 dist/
+forex_types.egg-info/
 build/
 nohup.out
 __pycache__/

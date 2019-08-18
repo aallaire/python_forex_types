@@ -2,7 +2,7 @@
 
 from decimal import Decimal
 
-from money_model.currency import Currency
+from forex_types.currency import Currency
 
 
 class Cash:
