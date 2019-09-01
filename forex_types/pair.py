@@ -47,7 +47,7 @@ class Pair:
         return Pair(str(base) + str(quote))
 
     def __hash__(self):
-        return hash((self.base, self.base.currency))
+        return hash((self.base, self.quote))
 
     def __str__(self):
         """String representation intentionally matches Oanda v20"""
