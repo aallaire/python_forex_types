@@ -44,12 +44,19 @@ class BasePrice:
 class Price(BasePrice):
 
     def __init__(self, value):
+        if isinstance(value, BasePrice):
+            value = Decimal(value.value)
+        else:
+            value = Decimal(value)
         BasePrice.__init__(self, value)
         self.value = Decimal(round(Decimal(value), 5))
         self.pips = round(Decimal(self.value * self.PIP_PER_UNIT), 1)
 
     def __new__(cls, value):
-        value = Decimal(value)
+        if isinstance(value, BasePrice):
+            value = Decimal(value.value)
+        else:
+            value = Decimal(value)
         if cls.MIN <= value <= cls.MAX:
             return super(Price, cls).__new__(cls)
         elif cls.NINJA_MIN <= value <= cls.NINJA_MAX:
