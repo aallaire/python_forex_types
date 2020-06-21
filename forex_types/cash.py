@@ -6,7 +6,6 @@ from forex_types.currency import Currency
 
 
 class Cash:
-
     def __init__(self, value: Decimal, currency: Currency):
         self.value = Decimal(value)
         self.currency = currency
@@ -25,5 +24,3 @@ class Cash:
             return Cash(round(self.value, 0), Currency.JPY)
         else:
             return Cash(round(self.value, 2), self.currency)
-
-

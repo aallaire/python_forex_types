@@ -6,21 +6,29 @@ from decimal import Decimal
 class Currency:
     """Unit of currency."""
 
-    AUD_STR = "AUD"   # Australian Dollar
-    CAD_STR = "CAD"   # Canadian Dollar
-    CHF_STR = "CHF"   # Swiss Frank
-    EUR_STR = "EUR"   # Euro
-    GBP_STR = "GBP"   # Great Britain Pound
-    JPY_STR = "JPY"   # Japanese Yen
-    NZD_STR = "NZD"   # New Zealand Dollar
-    USD_STR = "USD"   # United States Dollar
+    AUD_STR = "AUD"  # Australian Dollar
+    CAD_STR = "CAD"  # Canadian Dollar
+    CHF_STR = "CHF"  # Swiss Frank
+    EUR_STR = "EUR"  # Euro
+    GBP_STR = "GBP"  # Great Britain Pound
+    JPY_STR = "JPY"  # Japanese Yen
+    NZD_STR = "NZD"  # New Zealand Dollar
+    USD_STR = "USD"  # United States Dollar
 
     # These are to be assigned as Currency objects right
     # when this class is initialized.
     AUD = CAD = CHF = EUR = GBP = JPY = NZD = USD = None
 
-    PRECEDENCE = [EUR_STR, GBP_STR, AUD_STR, NZD_STR,
-                  USD_STR, CAD_STR, CHF_STR, JPY_STR]
+    PRECEDENCE = [
+        EUR_STR,
+        GBP_STR,
+        AUD_STR,
+        NZD_STR,
+        USD_STR,
+        CAD_STR,
+        CHF_STR,
+        JPY_STR,
+    ]
     NAMES = set(PRECEDENCE)
 
     # Decimal Places
@@ -35,15 +43,15 @@ class Currency:
     LAST_CURRENCY = None
 
     UNITS = {
-            #      singular  plural    sign       fractional pips per unit
-            AUD_STR: ("dollar", "dollars", u"\x24",   FPU_STANDARD),
-            CAD_STR: ("dollar", "dollars", u"\x24",   FPU_STANDARD),
-            CHF_STR: ("franc",  "francs",  u"",       FPU_STANDARD),
-            EUR_STR: ("euro",   "euros",   u"",       FPU_STANDARD),
-            GBP_STR: ("pound",  "pounds",  u"",       FPU_STANDARD),
-            JPY_STR: ("yen",    "yen",     u"",       FPU_REDUCED),
-            NZD_STR: ("dollar", "dollars", u"\x24",   FPU_STANDARD),
-            USD_STR: ("dollar", "dollars", u"\x24",   FPU_STANDARD),
+        #      singular  plural    sign       fractional pips per unit
+        AUD_STR: ("dollar", "dollars", u"\x24", FPU_STANDARD),
+        CAD_STR: ("dollar", "dollars", u"\x24", FPU_STANDARD),
+        CHF_STR: ("franc", "francs", u"", FPU_STANDARD),
+        EUR_STR: ("euro", "euros", u"", FPU_STANDARD),
+        GBP_STR: ("pound", "pounds", u"", FPU_STANDARD),
+        JPY_STR: ("yen", "yen", u"", FPU_REDUCED),
+        NZD_STR: ("dollar", "dollars", u"\x24", FPU_STANDARD),
+        USD_STR: ("dollar", "dollars", u"\x24", FPU_STANDARD),
     }
     # Some of these symbols cause printing trouble, so I leave them blank, the
     # swiss frank symbol seems to simply be CHF, so I leave that blank too.
@@ -82,9 +90,6 @@ class Currency:
         self.rounder = Decimal("1") / Decimal(str(self.fpu))
         self.decimal_places = 3 if self.fpu == 5 else False
         return self
-
-    def __hash__(self):
-        return hash(self.name)
 
     def __str__(self):
         return self.name

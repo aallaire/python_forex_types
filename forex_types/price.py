@@ -8,7 +8,7 @@ class BasePrice:
     """Common parent of Price and NinjaPrice"""
 
     # Prices outside these limits are considered errors.
-    MIN = Decimal("0.1")   # minimum for standard quote currencies
+    MIN = Decimal("0.1")  # minimum for standard quote currencies
     MAX = Decimal("10.0")  # maximum for standard quote currencies
     NINJA_MIN = Decimal("15.00")  # minimum for Japanese Yen.
     NINJA_MAX = Decimal("1000.00")  # maximum for Japanese Yen.
@@ -42,7 +42,6 @@ class BasePrice:
 
 
 class Price(BasePrice):
-
     def __init__(self, value):
         if isinstance(value, BasePrice):
             value = Decimal(value.value)

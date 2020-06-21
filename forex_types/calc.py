@@ -14,7 +14,6 @@ class CalcError(Exception):
 
 
 class Calc:
-
     @staticmethod
     def price_delta(price_1: Price, price_2: Price) -> Decimal:
         """Price subtraction which makes sure subtypes match.
@@ -44,14 +43,20 @@ class Calc:
         if direction == Direction.LONG:
             pips = entry.pips - stop.pips
             if pips < 5:
-                raise CalcError(f"Stop {stop} must be at least 5 pips below {entry} for BUY")
+                raise CalcError(
+                    f"Stop {stop} must be at least 5 pips below {entry} for BUY"
+                )
         elif direction == Direction.SHORT:
             pips = stop.pips - entry.pips
             if pips < 5:
-                raise CalcError(f"Stop of {stop} must be at least 5 pips above entry {entry} for SELL")
+                raise CalcError(
+                    f"Stop of {stop} must be at least 5 pips above entry {entry} for SELL"
+                )
 
     @classmethod
-    def get_lot_size(cls, risk: Cash, direction: Direction, entry: Price, stop: Price) -> LotSize:
+    def get_lot_size(
+        cls, risk: Cash, direction: Direction, entry: Price, stop: Price
+    ) -> LotSize:
         """Calculate lot size that matches risk level.
 
         Caveat: The value is only approximate because the actual price
@@ -96,7 +101,7 @@ class Calc:
         quote: Currency,
         direction: Direction,
         entry_price: Price,
-        exit_price: Price
+        exit_price: Price,
     ) -> Cash:
         """Calculate cash value of trade in quote currency.
 
@@ -118,11 +123,3 @@ class Calc:
             return Cash(exit_cost.value - entry_cost.value, quote)
         else:
             return Cash(entry_cost.value - exit_cost.value, quote)
-
-
-
-
-
-
-
-

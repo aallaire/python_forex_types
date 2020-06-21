@@ -12,6 +12,34 @@ from forex_types.currency import Currency
 
 
 class Pair:
+    EUR_GBP = None
+    EUR_AUD = None
+    GBP_AUD = None
+    EUR_NZD = None
+    GBP_NZD = None
+    AUD_NZD = None
+    EUR_USD = None
+    GBP_USD = None
+    AUD_USD = None
+    NZD_USD = None
+    EUR_CAD = None
+    GBP_CAD = None
+    AUD_CAD = None
+    NZD_CAD = None
+    USD_CAD = None
+    EUR_CHF = None
+    GBP_CHF = None
+    AUD_CHF = None
+    NZD_CHF = None
+    USD_CHF = None
+    CAD_CHF = None
+    EUR_JPY = None
+    GBP_JPY = None
+    AUD_JPY = None
+    NZD_JPY = None
+    USD_JPY = None
+    CAD_JPY = None
+    CHF_JPY = None
 
     CURRENCIES = {
         "aud": Currency.AUD,
@@ -72,8 +100,8 @@ class Pair:
     @classmethod
     def iter_pairs(cls):
         base_list = Currency.get_list()  # sorted by precedence.
-        quote_list = Currency.get_list() # e.g. EUR -> JPY
-        base_list.pop()    # Last currency will not be a base.
+        quote_list = Currency.get_list()  # e.g. EUR -> JPY
+        base_list.pop()  # Last currency will not be a base.
         quote_list.pop(0)  # First currency will not be a quote.
         while base_list:
             base = base_list.pop(0)
@@ -82,3 +110,31 @@ class Pair:
             quote_list.pop(0)
 
 
+Pair.EUR_GBP = Pair("EUR_GBP")
+Pair.EUR_AUD = Pair("EUR_AUD")
+Pair.GBP_AUD = Pair("GBP_AUD")
+Pair.EUR_NZD = Pair("EUR_NZD")
+Pair.GBP_NZD = Pair("GBP_NZD")
+Pair.AUD_NZD = Pair("AUD_NZD")
+Pair.EUR_USD = Pair("EUR_USD")
+Pair.GBP_USD = Pair("GBP_USD")
+Pair.AUD_USD = Pair("AUD_USD")
+Pair.NZD_USD = Pair("NZD_USD")
+Pair.EUR_CAD = Pair("EUR_CAD")
+Pair.GBP_CAD = Pair("GBP_CAD")
+Pair.AUD_CAD = Pair("AUD_CAD")
+Pair.NZD_CAD = Pair("NZD_CAD")
+Pair.USD_CAD = Pair("USD_CAD")
+Pair.EUR_CHF = Pair("EUR_CHF")
+Pair.GBP_CHF = Pair("GBP_CHF")
+Pair.AUD_CHF = Pair("AUD_CHF")
+Pair.NZD_CHF = Pair("NZD_CHF")
+Pair.USD_CHF = Pair("USD_CHF")
+Pair.CAD_CHF = Pair("CAD_CHF")
+Pair.EUR_JPY = Pair("EUR_JPY")
+Pair.GBP_JPY = Pair("GBP_JPY")
+Pair.AUD_JPY = Pair("AUD_JPY")
+Pair.NZD_JPY = Pair("NZD_JPY")
+Pair.USD_JPY = Pair("USD_JPY")
+Pair.CAD_JPY = Pair("CAD_JPY")
+Pair.CHF_JPY = Pair("CHF_JPY")

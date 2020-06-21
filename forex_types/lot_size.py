@@ -26,8 +26,7 @@ def divide_lot(size: int, num_targets: int) -> list:
 
 
 class LotSize(int):
-
-    def get_rounded(self, sig: int=2):
+    def get_rounded(self, sig: int = 2):
         """Round off to sig significant figures.
 
         For example 1384567 with sig of 2 returns 1400000

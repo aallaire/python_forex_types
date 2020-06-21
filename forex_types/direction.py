@@ -17,9 +17,4 @@ class Direction:
         elif lower in SHORT_STRINGS:
             return Direction.SHORT
         else:
-            raise ValueError(
-                f"Direction string not recognized: {lower}"
-            )
-
-
-
+            raise ValueError(f"Direction string not recognized: {lower}")

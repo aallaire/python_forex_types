@@ -1,5 +1,3 @@
-
-
 def get_magnitude(value: int) -> int:
     """Get magnitude of an integer
 
@@ -29,4 +27,3 @@ def int_round(value: int, sig: int) -> int:
     # Now we are set to round
     rounding_level = sig - magnitude  # will be negative
     return round(value, rounding_level)
-
