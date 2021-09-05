@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "forex-types"
-version = "0.0.6"
+version = "0.0.7"
 description = "Basic Forex Classes"
 authors = ["Andrew Allaire <andrew.allaire@gmail.com>"]
 license = "MIT"

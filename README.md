@@ -57,6 +57,3 @@ that is built on this package.
 that converts one currency into another given the relevant forex price.
 1. There are parts that are not covered by unit tests and are a bit rough and
 likely to be changed in future updates.
-
-
-
