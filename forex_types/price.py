@@ -40,6 +40,11 @@ class BasePrice:
             return NotImplemented
         return self.value < other.value
 
+    def __le__(self, other):
+        if not isinstance(other, BasePrice):
+            return NotImplemented
+        return self.value <= other.value
+
 
 class Price(BasePrice):
     def __init__(self, value):

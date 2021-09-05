@@ -23,3 +23,49 @@ class TestPrice:
             assert FracPips.from_price(price) == frac_pips
             assert isinstance(price, BasePrice)
             assert isinstance(price, subclass)
+
+    @pytest.mark.parametrize(
+        "v1,v2",
+        [
+            (Price("123.22"), Price("123.22")),
+            (Price("1.2322"), Price("1.2322")),
+            (Price("0.9938"), Price("0.9938")),
+            (Price("99.382"), Price("99.382")),
+        ],
+    )
+    def test_equal_prices(self, v1, v2):
+        assert v1 == v2
+        assert v1 <= v2
+        assert v1 >= v2
+        assert v2 == v1
+        assert v2 <= v1
+        assert v2 >= v1
+        assert not (v1 != v2)
+        assert not (v1 < v2)
+        assert not (v1 > v2)
+        assert not (v2 != v1)
+        assert not (v2 < v1)
+        assert not (v2 > v1)
+
+    @pytest.mark.parametrize(
+        "low,high",
+        [
+            (Price("123.12"), Price("123.22")),
+            (Price("1.2322"), Price("1.23222")),
+            (Price("0.9838"), Price("0.9938")),
+            (Price("98.382"), Price("99.382")),
+        ],
+    )
+    def test_unequal_prices(self, low, high):
+        assert low < high
+        assert low <= high
+        assert low != high
+        assert high > low
+        assert high >= low
+        assert high != low
+        assert not (low == high)
+        assert not (low > high)
+        assert not (low >= high)
+        assert not (high == low)
+        assert not (high < low)
+        assert not (high <= low)
